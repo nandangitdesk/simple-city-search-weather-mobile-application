@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/models/weather_model.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class WeatherService {
   // Weather service methods would go here
-  final String apiKey = '0ae1fbf2cb7f78a27d4161bb0de9e2d2';
+  final String apiKey = dotenv.env['API_KEY'] ?? '';
 
   Future<WeatherModel> fetchWeather(String cityName) async {
     // Implementation for fetching weather data from an API
